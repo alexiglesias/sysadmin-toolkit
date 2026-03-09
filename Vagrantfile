@@ -12,4 +12,9 @@ Vagrant.configure("2") do |config|
   vmware.memory = "1024"
   vmware.cpus = 1
  end
+
+ config.vm.provision "shell", inline: <<-SHELL
+  apt-get update -y
+  apt-get install -y git python3 python3-pip
+ SHELL
 end
